@@ -1,0 +1,29 @@
+# vim: set filetype=cfg
+[ui]
+username = Александр Ульяницкий <a.ulyanitsky@gmail.com>
+
+[trusted]
+users = apache, asux, root
+groups = apache, asux, root
+[merge-tool]
+kdiff3.gui = True
+kdiff3.args = $base $local $other -o $output
+kdiff3.priority = 1
+
+[extensions]
+convert = 
+graphlog =
+color =
+extdiff =
+convert = 
+qct =
+
+[qct]
+path= /usr/bin/qct
+
+[extdiff]
+cmd.kdiff = kompare
+cmd.vimdiff = vimdiff
+
+[web]
+style = gitweb

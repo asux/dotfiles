@@ -6,31 +6,14 @@ prompt gentoo
 
 setopt PROMPT_SUBST
 
-fg_green=$'%{\e[0;32m%}'
-fg_blue=$'%{\e[0;34m%}'
-fg_cyan=$'%{\e[0;36m%}'
-fg_red=$'%{\e[0;31m%}'
-fg_brown=$'%{\e[0;33m%}'
-fg_purple=$'%{\e[0;35m%}'
-fg_light_gray=$'%{\e[0;37m%}'
-fg_dark_gray=$'%{\e[1;30m%}'
-fg_light_blue=$'%{\e[1;34m%}'
-fg_light_green=$'%{\e[1;32m%}'
-fg_light_cyan=$'%{\e[1;36m%}'
-fg_light_red=$'%{\e[1;31m%}'
-fg_light_purple=$'%{\e[1;35m%}'
-fg_white=$'%{\e[1;37m%}'
-fg_black=$'%{\e[0;30m%}' 
-fg_no_colour=$'%{\e[0m%}'
-#PS1="${fg_green}%*${fg_red}${fg_red}${fg_dark_gray}%n${fg_cyan}@${fg_brown}%m${fg_white}:${fg_black}%~${fg_red}>${fg_black} "
-#PS1="${fg_dark_gray}%*${fg_red}${fg_red}${fg_black}%n${fg_red}@${fg_blue}%m${fg_black}:${fg_black}%~${fg_red}>${fg_black} "
+PREPROMPT='%B%F{yellow}%*%f% '
 if [[ ${USERNAME} = 'root' ]]; then
-    PROMPT='%B%F{yellow}[%*]%f%b%B%F{red}%m%k %B%F{blue}%1~ %# %b%f%k'
+    PROMPT="${PREPROMPT}%B%F{red}%m%k %B%F{blue}%1~ %# %b%f%k"
 else
-    PROMPT='%B%F{yellow}[%*]%f%b%B%F{green}%n@%m%k %B%F{blue}%1~ %# %b%f%k'
+    PROMPT="${PREPROMPT}%B%F{green}%n@%m%k %B%F{blue}%1~ %# %b%f%k"
 fi
 export PROMPT
-export RPROMPT="%F{yellow}(%?)[%h]%f"
+#export RPROMPT="%F{yellow}(%?)[%h]%f"
 
 limit stack 8192 
 limit core 0 
@@ -54,6 +37,7 @@ setopt APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS 
+setopt AUTO_CD
 eval `dircolors` 
 
 alias ls='ls --color=auto'
@@ -79,7 +63,9 @@ case ${TERM} in
     screen)
         precmd () { print -Pn "\033k%~\033\\" }
         preexec () { print -Pn "\033k$1\033\\" }
-    ;; 
+    ;;
+esac
+case ${TERM} in
     linux|screen|screen.linux)
         bindkey "^[[2~" yank 
         bindkey "^[[3~" delete-char 
@@ -105,11 +91,11 @@ case ${TERM} in
         bindkey " "  magic-space
     ;; 
 esac  
-alias zsh_reload='source ~/.zshrc'
+alias zreload='source ~/.zshrc'
+alias viz='vim ~/.zshrc'
 alias ls='ls -aFG'
 alias df='df -h'
 alias du='du -h'
-alias viz='vim ~/.zshrc'
 alias mxterm='xterm -fn "-*-terminus-*-r-normal-*-12-120-*-*-*-*-*-cp1251"'
 alias mv='nocorrect mv -i'
 alias cp='nocorrect cp -iR'

@@ -1,10 +1,22 @@
 #!/bin/zsh
 source /etc/profile
+#source /etc/zsh/zprofile
+
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS 
+setopt AUTO_CD
+setopt CORRECT_ALL
+setopt PROMPT_SUBST
+
+autoload -U zkbd
+autoload -U compinit 
+compinit 
 
 autoload -U promptinit && promptinit
 prompt gentoo
 
-setopt PROMPT_SUBST
 
 PREPROMPT='%B%F{yellow}%*%f%b '
 if [[ ${USERNAME} = 'root' ]]; then
@@ -17,9 +29,6 @@ export PROMPT
 
 limit stack 8192 
 limit core 0 
-autoload -U zkbd
-autoload -U compinit 
-compinit 
 
 zstyle ':completion:*' menu yes select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
@@ -33,11 +42,6 @@ export SAVEHIST=5000
 export HISTSIZE=5000
 export DIRSTACKSIZE=20 
 
-setopt APPEND_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_REDUCE_BLANKS 
-setopt AUTO_CD
 eval `dircolors` 
 
 alias ls='ls --color=auto'
@@ -119,3 +123,36 @@ alias -g L='|less'
 alias -g H='|head'
 alias -g T='|tail'
 alias -g N='2>/dev/null'
+
+[[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases
+
+[[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
+export PATH
+
+SRC_DIRS=( 'src' 'dev' )
+for dir in ${SRC_DIRS}; do
+    full_dir="${HOME}/${dir}"
+    if [[ -d ${full_dir} ]]; then
+        SRC_DIR=${full_dir}
+        break
+    fi
+done
+
+PYTHON_DIRS=( 'python' 'django' )
+for dir in ${PYTHON_DIRS}; do
+    full_dir="${SRC_DIR}/${dir}"
+    [[ -d ${full_dir} ]] && PYTHONPATH="${full_dir}:${PYTHONPATH}"
+done
+export PYTHONPATH
+
+#MANPAGER='/usr/bin/most -s'
+MANPAGER="/usr/bin/less -RMS"
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+export SCIPY_PIL_IMAGE_VIEWER=okular
+export EDITOR="/usr/bin/vim"

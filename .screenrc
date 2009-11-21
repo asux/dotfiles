@@ -25,4 +25,4 @@
 # On the right there is the time in green and the date in yellow.
 #
 #caption always "%?%{+b kw}%-Lw%?%{yK}%n*%f %t%?(%u)%?%?%{wk}%+Lw%? %{gk}%=%c %{yk}%d/%M/%Y"
-caption always "%{+b rk}%H%{gk} |%c %{yk}%d.%m.%Y | %{wk} %?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%? | %{rk} Load: %l %{wk}" 
+caption always "%{+b rk}%H%{gk} | %c %{yk}%d.%m.%Y | %{wk} %?%-Lw%?%{Kw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%? | %{rk} Load: %l %{wk}" 

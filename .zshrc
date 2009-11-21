@@ -6,7 +6,7 @@ prompt gentoo
 
 setopt PROMPT_SUBST
 
-PREPROMPT='%B%F{yellow}%*%f% '
+PREPROMPT='%B%F{yellow}%*%f%b '
 if [[ ${USERNAME} = 'root' ]]; then
     PROMPT="${PREPROMPT}%B%F{red}%m%k %B%F{blue}%1~ %# %b%f%k"
 else

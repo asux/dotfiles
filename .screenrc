@@ -3,7 +3,7 @@
 #caption always ' %{-b dd}%-w%{cd}%n* %t%{-}%+w %{cd}%-=(%l) %d/%m %c%{-} '
 
 #caption always "%{=}%{r} %L=%{+b}%?%{b}%-Lw%47L>%?%{w}%n*%f %t %?%{b}%+Lw%?%{g}%-31= %D %d %M %c:%s"
-caption always "%{=}%{r} %L=%{+b}%?%{b}%-Lw%47L>%?%{w}%n*%f %t %?%{b}%+Lw%?%{g}%-31= %d.%m.%Y %c:%s"
+#caption always "%{=}%{r} %L=%{+b}%?%{b}%-Lw%47L>%?%{w}%n*%f %t %?%{b}%+Lw%?%{g}%-31= %d.%m.%Y %c:%s"
 #caption always "%{= kw}%?%-Lw%?%{+b kw}%n*%t%f %?(%u)%?%{= kw}%?%+Lw%?"
 
 
@@ -25,3 +25,4 @@ caption always "%{=}%{r} %L=%{+b}%?%{b}%-Lw%47L>%?%{w}%n*%f %t %?%{b}%+Lw%?%{g}%
 # On the right there is the time in green and the date in yellow.
 #
 #caption always "%?%{+b kw}%-Lw%?%{yK}%n*%f %t%?(%u)%?%?%{wk}%+Lw%? %{gk}%=%c %{yk}%d/%M/%Y"
+caption always "%{+b rk}%H%{gk} |%c %{yk}%d.%m.%Y | %{wk} %?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%? | %{rk} Load: %l %{wk}" 

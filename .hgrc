@@ -16,6 +16,7 @@ extdiff =
 convert = 
 qct =
 hgview =
+progress =
 
 [qct]
 path= /usr/bin/qct
@@ -26,3 +27,12 @@ cmd.vimdiff = vimdiff
 
 [web]
 style = gitweb
+
+[progress]
+delay = 3 
+refresh = 0.1
+format = topic bar number
+width = 1 
+clear-complete = True
+disable = False
+assume-tty = False

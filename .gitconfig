@@ -1,9 +1,0 @@
-[color]
-	branch = always
-	status = always
-	grep = always
-	diff = always
-	ui = always
-[user]
-	name = Александр Ульяницкий
-	email = a.ulyanitsky@gmail.com

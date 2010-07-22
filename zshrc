@@ -1,4 +1,3 @@
-#!/bin/zsh
 source /etc/profile
 #source /etc/zsh/zprofile
 
@@ -15,14 +14,19 @@ autoload -U compinit
 compinit 
 
 autoload -U promptinit && promptinit
-prompt gentoo
+#prompt gentoo
 
+fpath=(~/.zsh/functions $fpath)
 
-PREPROMPT='%B%F{yellow}%*%f%b '
+autoload -U ~/.zsh/functions/*(:t)
+
+#PREPROMPT='%B%F{yellow}%*%f%b '
+PREPROMPT=''
+AFTERPROMPT='%B%F{yellow}$(git_info_for_prompt)%f%b'
 if [[ ${USERNAME} = 'root' ]]; then
-    PROMPT="${PREPROMPT}%B%F{red}%m%k %B%F{blue}%1~ %# %b%f%k"
+    PROMPT="${PREPROMPT}%B%F{red}%m%k %B%F{blue}%1~${AFTERPROMPT}%B%F{blue} %# %b%f%k"
 else
-    PROMPT="${PREPROMPT}%B%F{green}%n@%m%k %B%F{blue}%1~ %# %b%f%k"
+    PROMPT="${PREPROMPT}%B%F{green}%n@%m%k %B%F{blue}%1~${AFTERPROMPT}%B%F{blue} %# %b%f%k"
 fi
 export PROMPT
 #export RPROMPT="%F{yellow}(%?)[%h]%f"
@@ -42,9 +46,7 @@ export SAVEHIST=5000
 export HISTSIZE=5000
 export DIRSTACKSIZE=20 
 
-eval `dircolors` 
-
-alias ls='ls --color=auto'
+[[ $OSTYPE == linux* ]] && eval `dircolors` 
 
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
@@ -112,7 +114,7 @@ alias h=history
 alias df='df -m'
 alias less='less -M'
 alias ispell='ispell -d russian'
-alias ls='ls -F --color=auto'
+[[ $OSTYPE == linux* ]] && alias ls='ls -F --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
 alias li='ls -ial'
@@ -123,6 +125,8 @@ alias -g L='|less'
 alias -g H='|head'
 alias -g T='|tail'
 alias -g N='2>/dev/null'
+
+alias vi='vim'
 
 [[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases
 
@@ -146,7 +150,7 @@ done
 export PYTHONPATH
 
 #MANPAGER='/usr/bin/most -s'
-MANPAGER="/usr/bin/less -RMS"
+MANPAGER="less -RMS"
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -155,4 +159,4 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export SCIPY_PIL_IMAGE_VIEWER=okular
-export EDITOR="/usr/bin/vim"
+export EDITOR="vim"

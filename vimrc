@@ -19,9 +19,9 @@ set encoding=utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,cp1251,cp866,koi8-r
 set number
-set foldmethod=indent
-set foldcolumn=2
-set foldopen=all
+"set foldmethod=indent
+"set foldcolumn=2
+"set foldopen=all
 if has("autocmd")
 	autocmd FileType python set omnifunc=pythoncomplete#Complete
 	autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -32,10 +32,10 @@ if has("autocmd")
 	autocmd FileType c set omnifunc=ccomplete#Complete
 endif " has("autocmd") 
 set smartindent
-set softtabstop=4
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
 set expandtab 
-set shiftwidth=4 
-set tabstop=4
 set smartcase
 " AutoCloseOn
 imap <C-F> <C-X><C-O>

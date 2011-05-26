@@ -44,7 +44,7 @@
   name = Alexander Ulyanitsky
   email = a.ulyanitsky@gmail.com
 [giggle]
-  main-window-maximized = true
-  main-window-geometry = 0x0+0+0
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
 [diff]
   tool = kompare

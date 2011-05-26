@@ -160,3 +160,5 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export SCIPY_PIL_IMAGE_VIEWER=okular
 export EDITOR="vim"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
+unset RUBYOPT

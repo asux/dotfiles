@@ -133,7 +133,7 @@ alias vi='vim'
 [[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
 export PATH
 
-SRC_DIRS=( 'src' 'dev' )
+SRC_DIRS=( 'src' 'dev' 'code' )
 for dir in ${SRC_DIRS}; do
     full_dir="${HOME}/${dir}"
     if [[ -d ${full_dir} ]]; then
@@ -160,5 +160,5 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export SCIPY_PIL_IMAGE_VIEWER=okular
 export EDITOR="vim"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 unset RUBYOPT

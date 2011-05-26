@@ -1,4 +1,4 @@
-source ~asux/.vim/vimrc
+source ~/.vim/vimrc
 set term=xterm-color
 
 if has('gui_running')

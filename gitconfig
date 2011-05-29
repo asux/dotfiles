@@ -1,4 +1,6 @@
 # vim: set ft=gitconfig :
+[core]
+  excludesfile = ~/.gitignore-global
 [alias]
   s = status
   b = branch

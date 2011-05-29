@@ -1,0 +1,7 @@
+*~
+*.sw[po]
+.redcar
+.project
+.settings
+nbproject
+

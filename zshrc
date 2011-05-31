@@ -22,7 +22,9 @@ autoload -U ~/.zsh/functions/*(:t)
 
 #PREPROMPT='%B%F{yellow}%*%f%b '
 PREPROMPT=''
-AFTERPROMPT='%B%F{yellow}$(git_info_for_prompt)%f%b'
+local git_prompt='%B%F{yellow}$(git_info_for_prompt)%f%b'
+local rvm_prompt='%B%F{red}$(rvm_ruby_prompt)%f%b'
+AFTERPROMPT="${git_prompt}${rvm_prompt}"
 if [[ ${USERNAME} = 'root' ]]; then
     PROMPT="${PREPROMPT}%B%F{red}%m%k %B%F{blue}%1~${AFTERPROMPT}%B%F{blue} %# %b%f%k"
 else

@@ -1,0 +1,7 @@
+# vim: set ft=zsh
+local r=$(rvm current 2>/dev/null)
+if [[ -n $r ]]; then
+  if [[ $r != "system" ]]; then
+    printf " $r"
+  fi
+fi

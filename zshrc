@@ -22,7 +22,9 @@ autoload -U ~/.zsh/functions/*(:t)
 
 #PREPROMPT='%B%F{yellow}%*%f%b '
 PREPROMPT=''
-AFTERPROMPT='%B%F{yellow}$(git_info_for_prompt)%f%b'
+local git_prompt='%B%F{yellow}$(git_info_for_prompt)%f%b'
+local rvm_prompt='%B%F{red}$(rvm_ruby_prompt)%f%b'
+AFTERPROMPT="${git_prompt}${rvm_prompt}"
 if [[ ${USERNAME} = 'root' ]]; then
     PROMPT="${PREPROMPT}%B%F{red}%m%k %B%F{blue}%1~${AFTERPROMPT}%B%F{blue} %# %b%f%k"
 else
@@ -133,7 +135,7 @@ alias vi='vim'
 [[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
 export PATH
 
-SRC_DIRS=( 'src' 'dev' )
+SRC_DIRS=( 'src' 'dev' 'code' )
 for dir in ${SRC_DIRS}; do
     full_dir="${HOME}/${dir}"
     if [[ -d ${full_dir} ]]; then
@@ -160,3 +162,5 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export SCIPY_PIL_IMAGE_VIEWER=okular
 export EDITOR="vim"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+unset RUBYOPT

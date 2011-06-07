@@ -167,3 +167,4 @@ export CRUISE_DATA_ROOT="/var/lib/cruisecontrol.rb"
 export PATH=${PATH}:/var/www/html/cruisecontrol
 export PACKAGESITE="ftp://ftp7.ua.freebsd.org/pub/FreeBSD/ports/i386/packages-stable/Latest/"
 export RUBYOPT="-Ku"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.

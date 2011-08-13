@@ -4,14 +4,14 @@ source /etc/profile
 setopt APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
-setopt HIST_REDUCE_BLANKS 
+setopt HIST_REDUCE_BLANKS
 setopt AUTO_CD
 setopt CORRECT_ALL
 setopt PROMPT_SUBST
 
 autoload -U zkbd
-autoload -U compinit 
-compinit 
+autoload -U compinit
+compinit
 
 autoload -U promptinit && promptinit
 #prompt gentoo
@@ -33,22 +33,22 @@ fi
 export PROMPT
 #export RPROMPT="%F{yellow}(%?)[%h]%f"
 
-limit stack 8192 
-limit core 0 
+limit stack 8192
+limit core 0
 
 zstyle ':completion:*' menu yes select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:processes' command 'ps xua'
 zstyle ':completion:*:processes' sort false
 zstyle ':completion:*:processes-names' command 'ps xho command'
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b)#([0-9]#)*=0=01;31' 
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b)#([0-9]#)*=0=01;31'
 #
 export HISTFILE="${HOME}/.zhistory"
 export SAVEHIST=5000
 export HISTSIZE=5000
-export DIRSTACKSIZE=20 
+export DIRSTACKSIZE=20
 
-[[ $OSTYPE == linux* ]] && eval `dircolors` 
+[[ $OSTYPE == linux* ]] && eval `dircolors`
 
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
@@ -60,7 +60,7 @@ if [ -f /usr/bin/grc ]; then
     alias diff="grc --colour=auto diff"
     alias cvs="grc --colour=auto cvs"
     alias netstat="grc --colour=auto netstat"
-fi 
+fi
 
 bindkey -v
 case ${TERM} in
@@ -75,18 +75,18 @@ case ${TERM} in
 esac
 case ${TERM} in
     linux|screen|screen.linux)
-        bindkey "^[[2~" yank 
-        bindkey "^[[3~" delete-char 
-        bindkey "^[[5~" up-line-or-history 
-        bindkey "^[[6~" down-line-or-history 
-        bindkey "^[[1~" beginning-of-line 
-        bindkey "^[[4~" end-of-line 
-        bindkey "^[e" expand-cmd-path      # C-e for expanding path of typed command 
-        bindkey "^[[A" up-line-or-search   # up arrow for back-history-search 
-        bindkey "^[[B" down-line-or-search # down arrow for fwd-history-search 
-        bindkey " "  magic-space           # do history expansion on space 
+        bindkey "^[[2~" yank
+        bindkey "^[[3~" delete-char
+        bindkey "^[[5~" up-line-or-history
+        bindkey "^[[6~" down-line-or-history
+        bindkey "^[[1~" beginning-of-line
+        bindkey "^[[4~" end-of-line
+        bindkey "^[e" expand-cmd-path      # C-e for expanding path of typed command
+        bindkey "^[[A" up-line-or-search   # up arrow for back-history-search
+        bindkey "^[[B" down-line-or-search # down arrow for fwd-history-search
+        bindkey " "  magic-space           # do history expansion on space
         ;;
-    *xterm*|rxvt|(dt|k|E)term)  
+    *xterm*|rxvt|(dt|k|E)term)
         bindkey "^[[2~" yank
         bindkey "^[[3~" delete-char
         bindkey "^[[5~" up-line-or-history
@@ -97,8 +97,8 @@ case ${TERM} in
         bindkey "^[[A" up-line-or-search
         bindkey "^[[B" down-line-or-search
         bindkey " "  magic-space
-    ;; 
-esac  
+    ;;
+esac
 alias zreload='source ~/.zshrc'
 alias viz='vim ~/.zshrc'
 alias ls='ls -aFG'
@@ -130,27 +130,6 @@ alias -g N='2>/dev/null'
 
 alias vi='vim'
 
-[[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases
-
-[[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
-export PATH
-
-SRC_DIRS=( 'src' 'dev' 'code' )
-for dir in ${SRC_DIRS}; do
-    full_dir="${HOME}/${dir}"
-    if [[ -d ${full_dir} ]]; then
-        SRC_DIR=${full_dir}
-        break
-    fi
-done
-
-PYTHON_DIRS=( 'python' 'django' )
-for dir in ${PYTHON_DIRS}; do
-    full_dir="${SRC_DIR}/${dir}"
-    [[ -d ${full_dir} ]] && PYTHONPATH="${full_dir}:${PYTHONPATH}"
-done
-export PYTHONPATH
-
 #MANPAGER='/usr/bin/most -s'
 MANPAGER="less -RMS"
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -162,5 +141,10 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export SCIPY_PIL_IMAGE_VIEWER=okular
 export EDITOR="vim"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
+[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+[[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases
+[[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
+export PATH
+
 unset RUBYOPT

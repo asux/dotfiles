@@ -33,8 +33,8 @@ fi
 export PROMPT
 #export RPROMPT="%F{yellow}(%?)[%h]%f"
 
-limit stack 8192
-limit core 0
+#limit stack 8192
+#limit core 0
 
 zstyle ':completion:*' menu yes select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}

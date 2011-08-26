@@ -145,6 +145,8 @@ export EDITOR="vim"
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 [[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases
 [[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
+[[ -e ${HOME}/.zshrc.${OSTYPE} ]] && source ${HOME}/.zshrc.${OSTYPE}
+
 export PATH
 
 unset RUBYOPT

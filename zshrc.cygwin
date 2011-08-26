@@ -1,0 +1,5 @@
+# vim: ft=zsh
+bin_list=(irb gem bundle rails rake rspec guard redcar pry yard thor)
+for f in ${bin_list}; do
+	alias ${f}="ruby -S ${f}"
+done

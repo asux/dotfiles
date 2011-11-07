@@ -3,11 +3,12 @@ set term=xterm-color
 
 if has('gui_running')
   colorscheme railscasts
-else  
+  set lines=99 columns=999
+else
   colorscheme vibrantink
 endif
 
-set guifont=Monaco
+set guifont=Ubuntu\ Mono\ 12
 
 nmap <F5> :Rserver<CR>
 nmap <F6> :Rake spec<CR>
@@ -18,20 +19,20 @@ nmap <F10> :GitAdd .<CR>
 nmap <F11> :GitCommit -a<CR>
 
 " Leader shortcuts for Rails commands
-map <Leader>m :Rmodel 
-map <Leader>c :Rcontroller 
-map <Leader>v :Rview 
-map <Leader>u :Runittest 
-map <Leader>f :Rfunctionaltest 
-map <Leader>tm :RTmodel 
-map <Leader>tc :RTcontroller 
-map <Leader>tv :RTview 
-map <Leader>tu :RTunittest 
-map <Leader>tf :RTfunctionaltest 
-map <Leader>sm :RSmodel 
-map <Leader>sc :RScontroller 
-map <Leader>sv :RSview 
-map <Leader>su :RSunittest 
+map <Leader>m :Rmodel
+map <Leader>c :Rcontroller
+map <Leader>v :Rview
+map <Leader>u :Runittest
+map <Leader>f :Rfunctionaltest
+map <Leader>tm :RTmodel
+map <Leader>tc :RTcontroller
+map <Leader>tv :RTview
+map <Leader>tu :RTunittest
+map <Leader>tf :RTfunctionaltest
+map <Leader>sm :RSmodel
+map <Leader>sc :RScontroller
+map <Leader>sv :RSview
+map <Leader>su :RSunittest
 map <Leader>sf :RSfunctionaltest "
 
 " Edit routes

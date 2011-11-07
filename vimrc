@@ -1,18 +1,10 @@
 source ~/.vim/vimrc
-set term=xterm-color
-
-if has('gui_running')
-  colorscheme railscasts
-  set lines=99 columns=999
-else
-  colorscheme vibrantink
-endif
 
 set guifont=Ubuntu\ Mono\ 12
 
 nmap <F5> :Rserver<CR>
 nmap <F6> :Rake spec<CR>
-nmap <F7> :!cap deploy<CR>
+nmap <F7> :bundle exec rake vlad:deploy<CR>
 
 nmap <F9> :GitStatus<CR>
 nmap <F10> :GitAdd .<CR>
@@ -40,5 +32,4 @@ command! Eroutes :e config/routes.rb
 command! Eschema :e db/schema.rb
 command! EG :e Gemfile
 
-map <C-n> :tabnew<CR>
 map <C-t> :CommandT<CR>

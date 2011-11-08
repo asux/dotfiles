@@ -6,4 +6,6 @@
 .settings
 nbproject
 *.kdev4
-
+tags
+.DS_Store
+nohup.out

@@ -6,9 +6,10 @@ if has('gui_running')
   colorscheme molokai
 endif
 
-nmap <F5> :Rserver<CR>
+map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+nmap <F5> :!ctags -R<CR>
 nmap <F6> :Rake spec<CR>
-nmap <F7> :bundle exec rake vlad:deploy<CR>
+nmap <F7> :Bundle exec rake vlad:deploy<CR>
 
 nmap <F9> :GitStatus<CR>
 nmap <F10> :GitAdd .<CR>

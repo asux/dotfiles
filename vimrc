@@ -11,9 +11,9 @@ nmap <F5> :!ctags -R<CR>
 nmap <F6> :Rake spec<CR>
 nmap <F7> :Bundle exec rake vlad:deploy<CR>
 
-nmap <F9> :GitStatus<CR>
-nmap <F10> :GitAdd .<CR>
-nmap <F11> :GitCommit -a<CR>
+"nmap <F9> :GitStatus<CR>
+"nmap <F10> :GitAdd .<CR>
+"nmap <F11> :GitCommit -a<CR>
 
 " Leader shortcuts for Rails commands
 map <Leader>m :Rmodel

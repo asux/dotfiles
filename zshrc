@@ -42,6 +42,7 @@ zstyle ':completion:*:processes' command 'ps xua'
 zstyle ':completion:*:processes' sort false
 zstyle ':completion:*:processes-names' command 'ps xho command'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b)#([0-9]#)*=0=01;31'
+[ -e ~/.zsh/git-flow-completion ] && source ~/.zsh/git-flow-completion/git-flow-completion.zsh
 #
 export HISTFILE="${HOME}/.zhistory"
 export SAVEHIST=5000
@@ -148,6 +149,7 @@ export EDITOR="vim"
 [[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
 [[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases
 [[ -e ${HOME}/.zshrc.${OSTYPE} ]] && source ${HOME}/.zshrc.${OSTYPE}
+[[ -e ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
 
 export PATH
 

@@ -115,7 +115,7 @@ alias mkdir='nocorrect mkdir'
 alias h=history
 #alias grep=egrep
 alias df='df -m'
-alias less='less -M'
+alias less='less -RMS'
 alias ispell='ispell -d russian'
 [[ $OSTYPE == linux* ]] && alias ls='ls -F --color=auto'
 alias ll='ls -l'

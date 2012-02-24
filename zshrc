@@ -42,7 +42,7 @@ zstyle ':completion:*:processes' command 'ps xua'
 zstyle ':completion:*:processes' sort false
 zstyle ':completion:*:processes-names' command 'ps xho command'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b)#([0-9]#)*=0=01;31'
-[ -e ~/.zsh/git-flow-completion ] && source ~/.zsh/git-flow-completion/git-flow-completion.zsh
+[ -f ~/.zsh/git-flow-completion/git-flow-completion.zsh ] && source ~/.zsh/git-flow-completion/git-flow-completion.zsh
 #
 export HISTFILE="${HOME}/.zhistory"
 export SAVEHIST=5000

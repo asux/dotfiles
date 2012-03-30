@@ -50,3 +50,10 @@
   main-window-geometry = 0x0+0+0
 [diff]
   tool = kompare
+[mergetool "kdiff3"]
+    path = /usr/bin/kdiff3
+    trustExitCode = false
+[mergetool]
+    keepBackup = false
+[merge]
+    tool = kdiff3

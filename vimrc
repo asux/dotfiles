@@ -1,9 +1,11 @@
 source ~/.vim/vimrc
 
 set guifont=Ubuntu\ Mono\ 12
+"set guifont=Monaco\ 10
 
 if has('gui_running')
   colorscheme molokai
+  "colorscheme railscasts
 endif
 
 "map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
@@ -39,7 +41,8 @@ map <Leader>sf :RSfunctionaltest
 command! Eroutes :e config/routes.rb
 command! Eschema :e db/schema.rb
 
-map <C-t> :CommandT<CR>
+"It interfares with CTags
+"map <C-t> :CommandT<CR>
 map <S-t> :tabnew<CR>
 
 map <C-h> :TlistToggle<cr>

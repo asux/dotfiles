@@ -1,7 +1,8 @@
 source ~/.vim/vimrc
 
-set guifont=Ubuntu\ Mono\ 12
+"set guifont=Ubuntu\ Mono\ 12
 "set guifont=Monaco\ 10
+set guifont=PT\ Mono\ 11
 
 if has('gui_running')
   colorscheme molokai
@@ -10,15 +11,9 @@ endif
 
 "map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 nmap <F5> :!ctags -R<CR>
-nmap <F6> :Rake spec<CR>
-nmap <F7> :Bundle exec rake vlad:deploy<CR>
+nmap <F7> :!gitg &<CR>
 nmap <F8> :CommandTFlush<CR>
-
 nmap <F9> :!yard<CR>
-"nmap <F9> :GitStatus<CR>
-nmap <F10> :!gitg &<CR>
-"nmap <F10> :GitAdd .<CR>
-"nmap <F11> :GitCommit -a<CR>
 
 " Leader shortcuts for Rails commands
 map <Leader>m :Rmodel

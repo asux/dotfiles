@@ -143,14 +143,14 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 export SCIPY_PIL_IMAGE_VIEWER=okular
 export EDITOR="vim"
 
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-
 [[ -d ${HOME}/scripts ]] && PATH="${HOME}/scripts:${PATH}"
 [[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
 [[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases
 [[ -e ${HOME}/.zshrc.${OSTYPE} ]] && source ${HOME}/.zshrc.${OSTYPE}
 [[ -e ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
 
-export PATH
-
 unset RUBYOPT
+
+PATH=${HOME}/.rvm/bin:${PATH} # Add RVM to PATH for scripting
+
+export PATH

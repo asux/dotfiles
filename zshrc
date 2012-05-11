@@ -143,6 +143,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 export SCIPY_PIL_IMAGE_VIEWER=okular
 export EDITOR="vim"
 
+[[ -x ${HOME}/.rvm/scripts/rvm ]] && source ${HOME}/.rvm/scripts/rvm
 [[ -d ${HOME}/scripts ]] && PATH="${HOME}/scripts:${PATH}"
 [[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
 [[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases

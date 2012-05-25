@@ -155,3 +155,4 @@ unset RUBYOPT
 PATH=${HOME}/.rvm/bin:${PATH} # Add RVM to PATH for scripting
 
 export PATH
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

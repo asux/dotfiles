@@ -141,7 +141,10 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export SCIPY_PIL_IMAGE_VIEWER=okular
-export EDITOR="vim"
+export EDITOR="subl"
+
+# Since I use sudo including admin path
+PATH="/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
 
 [[ -x ${HOME}/.rvm/scripts/rvm ]] && source ${HOME}/.rvm/scripts/rvm
 [[ -d ${HOME}/scripts ]] && PATH="${HOME}/scripts:${PATH}"

@@ -1,8 +1,8 @@
 source ~/.vim/vimrc
 
 "set guifont=Ubuntu\ Mono\ 12
-"set guifont=Monaco\ 10
-set guifont=PT\ Mono\ 11
+set guifont=Monaco\ 10
+"set guifont=PT\ Monoco\ 11
 
 if has('gui_running')
   colorscheme molokai

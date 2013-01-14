@@ -1,6 +1,7 @@
-# vim: set ft=gitconfig :
+  # vim: set ft=gitconfig :
 [core]
   excludesfile = ~/.gitignore-global
+	editor = sublime-text --wait
 [alias]
   s = status
   b = branch
@@ -36,6 +37,7 @@
   # kdo = !gitk --date-order
   # kado = !gitk --all --date-order
   # kasd = !gitk --all --simplify-by-decoration
+    meld = !/home/asux/git-meld/git-meld.pl
 [color]
   branch = auto
   status = auto
@@ -48,12 +50,5 @@
 [giggle]
   main-window-maximized = true
   main-window-geometry = 0x0+0+0
-[diff]
-  tool = kompare
-[mergetool "kdiff3"]
-    path = /usr/bin/kdiff3
-    trustExitCode = false
-[mergetool]
-    keepBackup = false
-[merge]
-    tool = kdiff3
+[commit]
+	status = true

@@ -141,7 +141,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export SCIPY_PIL_IMAGE_VIEWER=okular
-export EDITOR="subl"
+export EDITOR="subl -w"
 
 # Since I use sudo including admin path
 PATH="/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
@@ -158,3 +158,6 @@ unset RUBYOPT
 # PATH=${HOME}/.rvm/bin:${PATH} # Add RVM to PATH for scripting
 
 export PATH
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

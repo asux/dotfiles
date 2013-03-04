@@ -1,7 +1,7 @@
-  # vim: set ft=gitconfig :
+# vim: set ft=gitconfig :
 [core]
   excludesfile = ~/.gitignore-global
-	editor = sublime-text --wait
+	editor = sublime-text-2 --wait
 [alias]
   s = status
   b = branch

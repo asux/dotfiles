@@ -1,6 +1,6 @@
 # vim: set ft=gitconfig :
 [core]
-  excludesfile = ~/.gitignore-global
+	excludesfile = ~/.gitignore-global
 	editor = sublime-text-2 --wait
 [alias]
   s = status
@@ -45,10 +45,16 @@
   diff = auto
   ui = auto
 [user]
-  name = Alex Ulianytskyi
-  email = a.ulyanitsky@gmail.com
+	name = Alex Ulianytskyi
+	email = a.ulyanitsky@gmail.com
 [giggle]
   main-window-maximized = true
   main-window-geometry = 0x0+0+0
 [commit]
 	status = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

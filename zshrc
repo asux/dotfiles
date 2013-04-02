@@ -86,7 +86,7 @@ case ${TERM} in
         bindkey "^[[A" up-line-or-search   # up arrow for back-history-search
         bindkey "^[[B" down-line-or-search # down arrow for fwd-history-search
         bindkey " "  magic-space           # do history expansion on space
-        ;;
+    ;;
     *xterm*|rxvt|(dt|k|E)term)
         bindkey "^[[2~" yank
         bindkey "^[[3~" delete-char
@@ -155,9 +155,9 @@ PATH="/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
 
 unset RUBYOPT
 
-# PATH=${HOME}/.rvm/bin:${PATH} # Add RVM to PATH for scripting
+### Added by the Heroku Toolbelt
+PATH="/usr/local/heroku/bin:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export PATH
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"

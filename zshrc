@@ -1,5 +1,6 @@
 source /etc/profile
 #source /etc/zsh/zprofile
+[ -f ~/.profile ] && source ~/.profile
 
 setopt APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
@@ -24,7 +25,7 @@ autoload -U ~/.zsh/functions/*(:t)
 PREPROMPT=''
 local git_prompt='%B%F{yellow}$(git_info_for_prompt)%f%b'
 local rvm_prompt='%B%F{red}$(rvm_ruby_prompt)%f%b'
-AFTERPROMPT="${git_prompt}${rvm_prompt}"
+AFTERPROMPT="${git_prompt}"
 if [[ ${USERNAME} = 'root' ]]; then
     PROMPT="${PREPROMPT}%B%F{red}%m%k %B%F{blue}%1~${AFTERPROMPT}%B%F{blue} %# %b%f%k"
 else
@@ -32,6 +33,7 @@ else
 fi
 export PROMPT
 #export RPROMPT="%F{yellow}(%?)[%h]%f"
+export RPROMPT="${rvm_prompt}"
 
 #limit stack 8192
 #limit core 0

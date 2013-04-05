@@ -1,165 +1,40 @@
-source /etc/profile
-#source /etc/zsh/zprofile
-[ -f ~/.profile ] && source ~/.profile
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
 
-setopt APPEND_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_REDUCE_BLANKS
-setopt AUTO_CD
-setopt CORRECT_ALL
-setopt PROMPT_SUBST
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="robbyrussell"
 
-autoload -U zkbd
-autoload -U compinit
-compinit
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-autoload -U promptinit && promptinit
-#prompt gentoo
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
 
-fpath=(~/.zsh/functions $fpath)
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
 
-autoload -U ~/.zsh/functions/*(:t)
+# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
 
-#PREPROMPT='%B%F{yellow}%*%f%b '
-PREPROMPT=''
-local git_prompt='%B%F{yellow}$(git_info_for_prompt)%f%b'
-local rvm_prompt='%B%F{red}$(rvm_ruby_prompt)%f%b'
-AFTERPROMPT="${git_prompt}"
-if [[ ${USERNAME} = 'root' ]]; then
-    PROMPT="${PREPROMPT}%B%F{red}%m%k %B%F{blue}%1~${AFTERPROMPT}%B%F{blue} %# %b%f%k"
-else
-    PROMPT="${PREPROMPT}%B%F{green}%n@%m%k %B%F{blue}%1~${AFTERPROMPT}%B%F{blue} %# %b%f%k"
-fi
-export PROMPT
-#export RPROMPT="%F{yellow}(%?)[%h]%f"
-export RPROMPT="${rvm_prompt}"
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
 
-#limit stack 8192
-#limit core 0
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-zstyle ':completion:*' menu yes select
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:processes' command 'ps xua'
-zstyle ':completion:*:processes' sort false
-zstyle ':completion:*:processes-names' command 'ps xho command'
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b)#([0-9]#)*=0=01;31'
-[ -f ~/.zsh/git-flow-completion/git-flow-completion.zsh ] && source ~/.zsh/git-flow-completion/git-flow-completion.zsh
-#
-export HISTFILE="${HOME}/.zhistory"
-export SAVEHIST=5000
-export HISTSIZE=5000
-export DIRSTACKSIZE=20
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
 
-[[ $OSTYPE == linux* ]] && eval `dircolors`
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
 
-export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='1;32'
+source $ZSH/oh-my-zsh.sh
 
-if [ -f /usr/bin/grc ]; then
-    alias ping="grc --colour=auto ping"
-    alias traceroute="grc --colour=auto traceroute"
-    alias make="grc --colour=auto make"
-    alias diff="grc --colour=auto diff"
-    alias cvs="grc --colour=auto cvs"
-    alias netstat="grc --colour=auto netstat"
-fi
-
-bindkey -v
-case ${TERM} in
-    xterm*|rxvt)
-        precmd () { print -Pn "\e]0;%n@%m: %~\a" }
-        preexec () { print -Pn "\e]0;%n@%m: $1\a" }
-    ;;
-    screen)
-        precmd () { print -Pn "\033k%~\033\\" }
-        preexec () { print -Pn "\033k$1\033\\" }
-    ;;
-esac
-case ${TERM} in
-    linux|screen|screen.linux)
-        bindkey "^[[2~" yank
-        bindkey "^[[3~" delete-char
-        bindkey "^[[5~" up-line-or-history
-        bindkey "^[[6~" down-line-or-history
-        bindkey "^[[1~" beginning-of-line
-        bindkey "^[[4~" end-of-line
-        bindkey "^[e" expand-cmd-path      # C-e for expanding path of typed command
-        bindkey "^[[A" up-line-or-search   # up arrow for back-history-search
-        bindkey "^[[B" down-line-or-search # down arrow for fwd-history-search
-        bindkey " "  magic-space           # do history expansion on space
-    ;;
-    *xterm*|rxvt|(dt|k|E)term)
-        bindkey "^[[2~" yank
-        bindkey "^[[3~" delete-char
-        bindkey "^[[5~" up-line-or-history
-        bindkey "^[[6~" down-line-or-history
-        bindkey "^[[H" beginning-of-line
-        bindkey "^[[F" end-of-line
-        bindkey "^E" expand-cmd-path
-        bindkey "^[[A" up-line-or-search
-        bindkey "^[[B" down-line-or-search
-        bindkey " "  magic-space
-    ;;
-esac
-alias zreload='source ~/.zshrc'
-alias viz='vim ~/.zshrc'
-alias ls='ls -aFG'
-alias df='df -h'
-alias du='du -h'
-alias mxterm='xterm -fn "-*-terminus-*-r-normal-*-12-120-*-*-*-*-*-cp1251"'
-alias mv='nocorrect mv -i'
-alias cp='nocorrect cp -iR'
-alias rm='nocorrect rm -i'
-alias rmf='nocorrect rm -f'
-alias rmrf='nocorrect rm -fR'
-alias mkdir='nocorrect mkdir'
-alias h=history
-#alias grep=egrep
-alias df='df -m'
-alias less='less -RMS'
-alias ispell='ispell -d russian'
-[[ $OSTYPE == linux* ]] && alias ls='ls -F --color=auto'
-alias ll='ls -l'
-alias la='ls -A'
-alias li='ls -ial'
-alias lsd='ls -ld *(-/DN)'
-alias lsa='ls -ld .*'
-alias -g M='|more'
-alias -g L='|less'
-alias -g H='|head'
-alias -g T='|tail'
-alias -g N='2>/dev/null'
-
-alias vi='vim'
-
-#MANPAGER='/usr/bin/most -s'
-MANPAGER="less -RMS"
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-export SCIPY_PIL_IMAGE_VIEWER=okular
-export EDITOR="subl -w"
-
-# Since I use sudo including admin path
-PATH="/usr/local/sbin:/usr/sbin:/sbin:${PATH}"
-
-[[ -x ${HOME}/.rvm/scripts/rvm ]] && source ${HOME}/.rvm/scripts/rvm
-[[ -d ${HOME}/scripts ]] && PATH="${HOME}/scripts:${PATH}"
-[[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
-[[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases
-[[ -e ${HOME}/.zshrc.${OSTYPE} ]] && source ${HOME}/.zshrc.${OSTYPE}
-[[ -e ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
-
-unset RUBYOPT
-
-### Added by the Heroku Toolbelt
-PATH="/usr/local/heroku/bin:$PATH"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-export PATH
+# Customize to your needs...
+export PATH=/usr/local/heroku/bin:/Users/asux/bin:/Users/asux/scripts:/Users/asux/.rvm/gems/ruby-1.9.3-p392/bin:/Users/asux/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/asux/.rvm/rubies/ruby-1.9.3-p392/bin:/Users/asux/.rvm/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/asux/.rvm/bin

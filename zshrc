@@ -38,6 +38,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+fpath=(~/.zsh/functions $fpath)
+autoload rvm_ruby_prompt
+
+export RPROMPT='%{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}'
+
 [[ -x ${HOME}/.rvm/scripts/rvm ]] && source ${HOME}/.rvm/scripts/rvm
 [[ -d ${HOME}/scripts ]] && PATH="${HOME}/scripts:${PATH}"
 [[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"

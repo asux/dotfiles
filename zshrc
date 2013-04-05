@@ -5,11 +5,11 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="random"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="subl ~/.zshrc"
+alias ohmyzsh="subl ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -32,9 +32,24 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git git-hubflow rails ruby rvm sublime osx brew)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/heroku/bin:/Users/asux/bin:/Users/asux/scripts:/Users/asux/.rvm/gems/ruby-1.9.3-p392/bin:/Users/asux/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/asux/.rvm/rubies/ruby-1.9.3-p392/bin:/Users/asux/.rvm/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/asux/.rvm/bin
+
+[[ -x ${HOME}/.rvm/scripts/rvm ]] && source ${HOME}/.rvm/scripts/rvm
+[[ -d ${HOME}/scripts ]] && PATH="${HOME}/scripts:${PATH}"
+[[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
+[[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases
+[[ -e ${HOME}/.zshrc.${OSTYPE} ]] && source ${HOME}/.zshrc.${OSTYPE}
+[[ -e ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
+
+unset RUBYOPT
+
+### Added by the Heroku Toolbelt
+PATH="/usr/local/heroku/bin:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export PATH

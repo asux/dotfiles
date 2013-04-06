@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="random"
+ZSH_THEME="asux"
 
 # Example aliases
 alias zshconfig="subl ~/.zshrc"
@@ -42,19 +42,3 @@ fpath=(~/.zsh/functions $fpath)
 autoload rvm_ruby_prompt
 
 export RPROMPT='%{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}'
-
-[[ -x ${HOME}/.rvm/scripts/rvm ]] && source ${HOME}/.rvm/scripts/rvm
-[[ -d ${HOME}/scripts ]] && PATH="${HOME}/scripts:${PATH}"
-[[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
-[[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases
-[[ -e ${HOME}/.zshrc.${OSTYPE} ]] && source ${HOME}/.zshrc.${OSTYPE}
-[[ -e ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
-
-unset RUBYOPT
-
-### Added by the Heroku Toolbelt
-PATH="/usr/local/heroku/bin:$PATH"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-export PATH

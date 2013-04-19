@@ -42,3 +42,6 @@ fpath=(~/.zsh/functions $fpath)
 autoload rvm_ruby_prompt
 
 export RPROMPT='%{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}'
+
+zstyle ':completion:*' menu select
+

@@ -11,3 +11,5 @@ tags
 .DS_Store
 nohup.out
 .idea
+*.sublime-project
+*.sublime-workspace

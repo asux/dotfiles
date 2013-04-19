@@ -1,7 +1,7 @@
 # vim: set ft=gitconfig :
 [core]
-	excludesfile = ~/.gitignore-global
-	editor = sublime-text-2 --wait
+  excludesfile = ~/.gitignore-global
+  editor = sublime-text-2 --wait
 [alias]
   s = status
   b = branch
@@ -45,16 +45,36 @@
   diff = auto
   ui = auto
 [user]
-	name = Alex Ulianytskyi
-	email = a.ulyanitsky@gmail.com
+  name = Alex Ulianytskyi
+  email = a.ulyanitsky@gmail.com
 [giggle]
   main-window-maximized = true
   main-window-geometry = 0x0+0+0
 [commit]
-	status = true
+  status = true
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = ksdiff -w \"$LOCAL\" \"$REMOTE\"
+  path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
+  trustExitCode = true
+[push]
+  default = matching
+[diff]
+  tool = Kaleidoscope
+[difftool "diffmerge"]
+  cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[merge]
+  tool = Kaleidoscope
+[mergetool "diffmerge"]
+  cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+  trustExitCode = true
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+  prompt = false
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[mergetool]
+  prompt = false

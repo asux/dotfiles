@@ -13,3 +13,5 @@ nohup.out
 .idea
 *.sublime-project
 *.sublime-workspace
+.rbx
+Thumbs.db

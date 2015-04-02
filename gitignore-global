@@ -15,4 +15,6 @@ nohup.out
 *.sublime-workspace
 .rbx
 Thumbs.db
-.powrc
+COMMIT_MSG
+TAG_EDITMSG
+MERGE_MSG

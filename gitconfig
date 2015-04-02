@@ -1,7 +1,7 @@
 # vim: set ft=gitconfig :
 [core]
-    excludesfile = ~/.gitignore-global
-    editor = subl --wait
+	  excludesfile = /Users/asux/.gitignore-global
+	  editor = atom --wait
 [alias]
     s = status
     b = branch
@@ -45,21 +45,21 @@
     diff = auto
     ui = auto
 [user]
-	name = Alex Ulianytskyi
-	email = a.ulyanitsky@gmail.com
+	  name = Alex Ulianytskyi
+	  email = a.ulyanitsky@gmail.com
 [giggle]
     main-window-maximized = true
     main-window-geometry = 0x0+0+0
 [commit]
     status = true
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path = 
+	  cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	  path =
 [mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+	  cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	  trustExitCode = true
 [push]
-    default = matching
+	  default = simple
 [diff]
     tool = Kaleidoscope
 [difftool "diffmerge"]
@@ -78,4 +78,12 @@
     trustExitCode = true
 [mergetool]
     prompt = false
-	keepBackup = true
+	  keepBackup = true
+[filter "media"]
+		required = true
+		clean = git media clean %f
+		smudge = git media smudge %f
+[filter "hawser"]
+		clean = git hawser clean %f
+		smudge = git hawser smudge %f
+		required = true

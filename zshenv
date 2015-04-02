@@ -15,7 +15,7 @@ PATH="/usr/local/heroku/bin:$PATH"
 
 [[ -d ${HOME}/scripts ]] && PATH="${HOME}/scripts:${PATH}"
 [[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# PATH=${HOME}/.rvm/bin:$PATH: # Add RVM to PATH for scripting
 
 export PATH
-export EDITOR="subl -n"
+export EDITOR="atom"

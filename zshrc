@@ -32,7 +32,7 @@ alias ohmyzsh="subl ~/.oh-my-zsh"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow rails ruby rvm sublime osx brew)
+plugins=(git git-flow git-hubflow rails ruby rvm bundler osx brew aws heroku sublime atom powder powify)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -44,4 +44,3 @@ autoload rvm_ruby_prompt
 export RPROMPT='%{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}'
 
 zstyle ':completion:*' menu select
-

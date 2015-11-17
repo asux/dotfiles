@@ -8,8 +8,8 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="asux"
 
 # Example aliases
-alias zshconfig="subl ~/.zshrc"
-alias ohmyzsh="subl ~/.oh-my-zsh"
+alias zshconfig="${EDITOR} ~/.zshrc"
+alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -32,7 +32,7 @@ alias ohmyzsh="subl ~/.oh-my-zsh"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow git-hubflow rails ruby rvm bundler osx brew aws heroku sublime atom powder powify)
+plugins=(git git-hubflow rails ruby rvm bundler osx brew aws heroku sublime atom powder powify node docker)
 
 source $ZSH/oh-my-zsh.sh
 

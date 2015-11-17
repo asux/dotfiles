@@ -18,4 +18,4 @@ PATH="/usr/local/heroku/bin:$PATH"
 # PATH=${HOME}/.rvm/bin:$PATH: # Add RVM to PATH for scripting
 
 export PATH
-export EDITOR="atom"
+export EDITOR="atom --wait"

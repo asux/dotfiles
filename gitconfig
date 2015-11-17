@@ -1,7 +1,7 @@
 # vim: set ft=gitconfig :
 [core]
 	  excludesfile = /Users/asux/.gitignore-global
-	  editor = atom --wait
+	editor = atom --wait
 [alias]
     s = status
     b = branch
@@ -53,11 +53,11 @@
 [commit]
     status = true
 [difftool "sourcetree"]
-	  cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	  path =
+	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-	  cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	  trustExitCode = true
+	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
 [push]
 	  default = simple
 [diff]
@@ -87,3 +87,7 @@
 		clean = git hawser clean %f
 		smudge = git hawser smudge %f
 		required = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

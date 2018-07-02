@@ -1,4 +1,4 @@
-source ~/.vim/vimrc
+"source ~/.vim/vimrc
 
 set guifont=Monaco\ 11
 

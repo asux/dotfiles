@@ -32,11 +32,15 @@ alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-hubflow rails ruby rvm bundler osx brew aws heroku sublime atom powder powify node docker)
+plugins=(git git-hubflow rails ruby rvm bundler osx brew aws heroku sublime
+  atom node docker elixir crystal exercism)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
 fpath=(~/.zsh/functions $fpath)
 autoload rvm_ruby_prompt
@@ -44,3 +48,7 @@ autoload rvm_ruby_prompt
 export RPROMPT='%{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}'
 
 zstyle ':completion:*' menu select
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

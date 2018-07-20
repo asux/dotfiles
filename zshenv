@@ -1,21 +1,21 @@
-PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:${PATH}"
+#!/usr/local/bin/zsh
 
-for file in ${HOME}/.zshenv.*; do
-    source $file
+PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
+
+for file in ${HOME}/.zsh/environment/*.env; do
+	source $file
 done
 
-[[ -x ${HOME}/.rvm/scripts/rvm ]] && source ${HOME}/.rvm/scripts/rvm
 [[ -f ${HOME}/.aliases ]] && source ${HOME}/.aliases
 [[ -e ${HOME}/.zshrc.${OSTYPE} ]] && source ${HOME}/.zshrc.${OSTYPE}
 [[ -e ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
 
-
-### Added by the Heroku Toolbelt
-PATH="/usr/local/heroku/bin:$PATH"
-
 [[ -d ${HOME}/scripts ]] && PATH="${HOME}/scripts:${PATH}"
 [[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
-# PATH=${HOME}/.rvm/bin:$PATH: # Add RVM to PATH for scripting
+
+if [ -d "$HOME/platform-tools" ]; then
+	export PATH="$HOME/platform-tools:$PATH"
+fi
 
 export PATH
-export EDITOR="atom --wait"
+export EDITOR="code -nw"

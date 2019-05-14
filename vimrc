@@ -1,40 +1,26 @@
-"source ~/.vim/vimrc
+set nocompatible " required
 
-set guifont=Monaco\ 11
+filetype off     " required
 
-if has('gui_running')
-    colorscheme Tomorrow-Night
-endif
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-"map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
-nmap <F5> :!ctags -R<CR>
-nmap <F7> :!gitg &<CR>
-nmap <F8> :CommandTFlush<CR>
-nmap <F9> :!yard<CR>
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" Leader shortcuts for Rails commands
-map <Leader>m :Rmodel
-map <Leader>co :Rcontroller
-map <Leader>v :Rview
-map <Leader>u :Runittest
-map <Leader>f :Rfunctionaltest
-map <Leader>tm :RTmodel
-map <Leader>tc :RTcontroller
-map <Leader>tv :RTview
-map <Leader>tu :RTunittest
-map <Leader>tf :RTfunctionaltest
-map <Leader>sm :RSmodel
-map <Leader>sc :RScontroller
-map <Leader>sv :RSview
-map <Leader>su :RSunittest
-map <Leader>sf :RSfunctionaltest
+" let Vundle manage Vundle, required
+ 
+source ~/.vim/plugins.vim
 
-" Edit routes
-command! Eroutes :e config/routes.rb
-command! Eschema :e db/schema.rb
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
-"It interfares with CTags
-"map <C-t> :CommandT<CR>
-map <S-t> :tabnew<CR>
+" All of your Plugins must be added before the following line call vundle#end()  " required
 
-map <C-h> :TlistToggle<cr>
+filetype plugin indent on    " required
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+map <C-n> :NERDTreeToggle<CR>
+

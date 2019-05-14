@@ -2,6 +2,8 @@
 [core]
 	excludesfile = /Users/asux/.gitignore-global
 	editor = code --wait
+	autocrlf = false
+	trustctime = false
 [alias]
     s = status
     b = branch
@@ -47,6 +49,7 @@
 [user]
 	name = Alex Ulianytskyi
 	email = a.ulyanitsky@gmail.com
+	signingKey = 0981513481C68BCBD19CFED0E2711EA329DA9501
 [giggle]
     main-window-maximized = true
     main-window-geometry = 0x0+0+0
@@ -55,18 +58,18 @@
 	template = /Users/asux/.stCommitMsg
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
 [push]
-	  default = simple
+    default = simple
 [diff]
     tool = Kaleidoscope
 [difftool "diffmerge"]
     cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 [merge]
-    tool = Kaleidoscope
+	tool = smerge
 [mergetool "diffmerge"]
     cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
     trustExitCode = true
@@ -79,17 +82,20 @@
     trustExitCode = true
 [mergetool]
     prompt = false
-	  keepBackup = true
+    keepBackup = true
 [filter "media"]
-		required = true
-		clean = git media clean %f
-		smudge = git media smudge %f
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
 [filter "hawser"]
-		clean = git hawser clean %f
-		smudge = git hawser smudge %f
-		required = true
+    clean = git hawser clean %f
+    smudge = git hawser smudge %f
+    required = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[mergetool "smerge"]
+	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true

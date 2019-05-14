@@ -1,7 +1,0 @@
-# vim: set ft=zsh
-rvm_current=$(rvm current 2>/dev/null)
-if [[ -n $rvm_current ]]; then
-  if [[ $rvm_current != "system" ]]; then
-    printf " ${rvm_current/ruby-/}"
-  fi
-fi

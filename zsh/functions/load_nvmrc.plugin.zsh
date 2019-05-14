@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # place this after nvm initialization!
 autoload -U add-zsh-hook
 load-nvmrc() {

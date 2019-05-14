@@ -1,3 +1,5 @@
+#!/usr/local/bin/zsh
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -18,7 +20,7 @@ alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -32,30 +34,44 @@ alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-hubflow rails ruby rvm bundler osx brew aws heroku
-	node docker elixir crystal exercism nvm vscode yarn)
+plugins=(
+	aterminal
+	autojump
+	aws
+	brew
+	bundler
+	colorize
+	docker
+	gem
+	git
+	git-hubflow
+	heroku
+	history
+	mix
+	node
+	npm
+	nvm
+	osx
+	pip
+	python
+	rails
+	ruby
+	rvm
+	rvm_current
+	themes
+	virtualenv
+	vscode
+	yarn
+	)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-# export ZPLUG_HOME=/usr/local/opt/zplug
-# source $ZPLUG_HOME/init.zsh
-
-fpath=(~/.zsh/functions $fpath)
-autoload rvm_ruby_prompt
-
-export RPROMPT='%{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}'
-
 zstyle ':completion:*' menu select
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-source ~/.zsh/functions/load_nvmrc
+[ -s "$NVM_DIR/zsh_completion" ] && . "$NVM_DIR/zsh_completion" # This loads nvm bash_completion

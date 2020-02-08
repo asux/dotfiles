@@ -1,3 +1,3 @@
-#!/usr/local/bin/zsh
+#!/bin/zsh
 
 export EDITOR="code -nw"

@@ -1,101 +1,120 @@
 # vim: set ft=gitconfig :
 [core]
-	excludesfile = /Users/asux/.gitignore-global
-	editor = code --wait
-	autocrlf = false
-	trustctime = false
+excludesfile = /Users/asux/.gitignore-global
+editor = code --wait
+autocrlf = false
+trustctime = false
+
 [alias]
-    s = status
-    b = branch
-    t = tag
-    ba = branch -a -v -v
-    bs = !git-branch-status
-    bsi = !git-branch-status -i
-    ci = commit
-    co = checkout
-    last = log -1 HEAD
-    chp = cherry-pick
+s = status
+b = branch
+t = tag
+ba = branch -a -v -v
+bs = !git-branch-status
+bsi = !git-branch-status -i
+ci = commit
+co = checkout
+last = log -1 HEAD
+chp = cherry-pick
 
-    d = diff -C
-    ds = diff -C --stat
-    dsp = diff -C --stat -p
-    dw = diff -C --color-words
+d = diff -C
+ds = diff -C --stat
+dsp = diff -C --stat -p
+dw = diff -C --color-words
 
-    l = log -C --decorate
-    ls = log -C --stat --decorate
-    lsp = log -C --stat -p --decorate
-    lg = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s'
-    lga = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all
-    l19 = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all -19
-    # для сложных ветвлений
-    # lsd = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all --simplify-by-decoration
-    # ru = remote update
-    # sb = show-branch --sha1-name
-    # ls-del = ls-files -d
-    # ls-mod = ls-files -m # включая удалённые файлы
-    # ls-new = ls-files --exclude-standard -o
-    # ls-ign = ls-files --exclude-standard -o -i
-    # ka = !gitk --all
-    # kdo = !gitk --date-order
-    # kado = !gitk --all --date-order
-    # kasd = !gitk --all --simplify-by-decoration
-    meld = !/home/asux/git-meld/git-meld.pl
+l = log -C --decorate
+ls = log -C --stat --decorate
+lsp = log -C --stat -p --decorate
+lg = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s'
+lga = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all
+l19 = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all -19
+# для сложных ветвлений
+# lsd = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all --simplify-by-decoration
+# ru = remote update
+# sb = show-branch --sha1-name
+# ls-del = ls-files -d
+# ls-mod = ls-files -m # включая удалённые файлы
+# ls-new = ls-files --exclude-standard -o
+# ls-ign = ls-files --exclude-standard -o -i
+# ka = !gitk --all
+# kdo = !gitk --date-order
+# kado = !gitk --all --date-order
+# kasd = !gitk --all --simplify-by-decoration
+meld = !/home/asux/git-meld/git-meld.pl
+
 [color]
-    branch = auto
-    status = auto
-    grep = auto
-    diff = auto
-    ui = auto
+branch = auto
+status = auto
+grep = auto
+diff = auto
+ui = auto
+
 [user]
-	name = Alex Ulianytskyi
-	email = a.ulyanitsky@gmail.com
-	signingKey = 0981513481C68BCBD19CFED0E2711EA329DA9501
+name = Alex Ulianytskyi
+email = a.ulyanitsky@gmail.com
+
 [giggle]
-    main-window-maximized = true
-    main-window-geometry = 0x0+0+0
+main-window-maximized = true
+main-window-geometry = 0x0+0+0
+
 [commit]
-    status = true
-	template = /Users/asux/.stCommitMsg
+status = true
+template = /Users/asux/.stCommitMsg
+
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path =
+cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+path =
+
 [mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+trustExitCode = true
+
 [push]
-    default = simple
+default = simple
+
 [diff]
-    tool = Kaleidoscope
+tool = Kaleidoscope
+
 [difftool "diffmerge"]
-    cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+
 [merge]
-	tool = smerge
+tool = smerge
+
 [mergetool "diffmerge"]
-    cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
-    trustExitCode = true
+cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+trustExitCode = true
+
 [difftool "Kaleidoscope"]
-    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
 [difftool]
-    prompt = false
+prompt = false
+
 [mergetool "Kaleidoscope"]
-    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-    trustExitCode = true
+cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+trustExitCode = true
+
 [mergetool]
-    prompt = false
-    keepBackup = true
+prompt = false
+keepBackup = true
+
 [filter "media"]
-    required = true
-    clean = git media clean %f
-    smudge = git media smudge %f
+required = true
+clean = git media clean %f
+smudge = git media smudge %f
+
 [filter "hawser"]
-    clean = git hawser clean %f
-    smudge = git hawser smudge %f
-    required = true
+clean = git hawser clean %f
+smudge = git hawser smudge %f
+required = true
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
+
 [mergetool "smerge"]
-	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = true
+cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+trustExitCode = true

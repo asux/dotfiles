@@ -50,8 +50,9 @@ diff = auto
 ui = auto
 
 [user]
-name = Alex Ulianytskyi
-email = a.ulyanitsky@gmail.com
+	name = Alexander Ulianytskyi
+	email = a.ulyanitsky@gmail.com
+	signingKey = ""
 
 [giggle]
 main-window-maximized = true
@@ -60,6 +61,7 @@ main-window-geometry = 0x0+0+0
 [commit]
 status = true
 template = /Users/asux/.stCommitMsg
+	gpgSign = false
 
 [difftool "sourcetree"]
 cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
@@ -79,7 +81,7 @@ tool = Kaleidoscope
 cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 
 [merge]
-tool = smerge
+	tool = Kaleidoscope
 
 [mergetool "diffmerge"]
 cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
@@ -118,3 +120,13 @@ required = true
 [mergetool "smerge"]
 cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
 trustExitCode = true
+[gui]
+	editor = nova
+[gpg]
+	program = gpg
+[tag]
+	forceSignAnnotated = false
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main

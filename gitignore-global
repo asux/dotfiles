@@ -107,4 +107,6 @@ Temporary Items
 # End of https://www.gitignore.io/api/komodoedit
 
 ## BetterErrors
-**/config/initializers/better_errors.rb
+**/config/initializers/better_errors.rb**
+
+**/spec/examples.txt

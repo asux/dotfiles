@@ -70,7 +70,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bundler dotenv git nvm osx postgres rake-fast ruby vscode yarn)
+plugins=(brew bundler docker docker-compose dotenv git nvm macos postgres rake-fast ruby vscode yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,3 +98,7 @@ source $ZSH/oh-my-zsh.sh
 #
 
 starship -V > /dev/null && eval "$(starship init zsh)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# export PATH="$PATH:/usr/local/sbin"

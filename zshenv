@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-export EDITOR="code -nw"
+export EDITOR="micro"

@@ -70,7 +70,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew bundler docker docker-compose dotenv git nvm macos postgres rake-fast ruby vscode yarn)
+plugins=(brew bundler docker docker-compose dotenv git kubectl nvm macos postgres rake-fast ruby vscode yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,8 +97,15 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 
+# Allow [ or ] whereever you want
+unsetopt nomatch
+
 starship -V > /dev/null && eval "$(starship init zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # export PATH="$PATH:/usr/local/sbin"
+
+if command -v ngrok &>/dev/null; then
+    eval "$(ngrok completion)"
+fi

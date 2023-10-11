@@ -110,3 +110,12 @@ Temporary Items
 **/config/initializers/better_errors.rb**
 
 **/spec/examples.txt
+
+
+# Environment
+.env.*
+*.env
+
+.rake_tasks
+/coverage
+rspec.xml

@@ -106,16 +106,8 @@ Temporary Items
 
 # End of https://www.gitignore.io/api/komodoedit
 
-## BetterErrors
-**/config/initializers/better_errors.rb**
-
-**/spec/examples.txt
-
-
 # Environment
-.env.*
 *.env
+.env.*
 
 .rake_tasks
-/coverage
-rspec.xml

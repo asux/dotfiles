@@ -100,12 +100,16 @@ source $ZSH/oh-my-zsh.sh
 # Allow [ or ] whereever you want
 unsetopt nomatch
 
-starship -V > /dev/null && eval "$(starship init zsh)"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # export PATH="$PATH:/usr/local/sbin"
 
 if command -v ngrok &>/dev/null; then
     eval "$(ngrok completion)"
 fi
+
+# append completions to fpath
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
+# Added by Windsurf
+export PATH="/Users/asux/.codeium/windsurf/bin:$PATH"

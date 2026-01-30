@@ -1,8 +1,8 @@
 # vim: set ft=gitconfig :
 [core]
-excludesfile = /Users/asux/.gitignore-global
+	excludesfile = /Users/asux/.gitignore-global
 editor = code --wait
-autocrlf = false
+	autocrlf = input
 trustctime = false
 
 [alias]
@@ -52,7 +52,7 @@ ui = auto
 [user]
 	name = Oleksandr Ulianytskyi
 	email = a.ulyanitsky@gmail.com
-	signingKey = ""
+	signingKey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmN/ve2I6K6rcgGEmX08TvKOruDlWi4Tdm97DfV8HXvNoESj4r+WhKbhtZe+rcjx4n4cSK6+Dwm0YtX+uc3p8FL1Bi6e8rVfv3lPu/mqJymsf9DKxBunPyVDd5kds1wd+EJ34TrwTHRhhU6kPBW658mGRPI9aCygqZEkVl5JeOcXHDVLb3ud3+pADZ8LVGwcuByRuW0WRTk11CNIrdbZIv2J263rxucTC+hyw7YDNYWQziUrTIQRpknx58a8Jq7TDSWZ0EgMdTQUoNDcl8DOgNLvI37QHXed/zB/HqEhvyMOGGKcD+aQJeefVOz+AwHW9+fu6hgCaLzAftAxfAtuUCd74jR6y1Uo9nawXoEbztrY5qKAiq93ChWab4g77bSOdoNRyMW80msvfy0/17BhRSCseXGejvATCBw4GDp8sRFmSPLP/LQl3Wawwj1t5x7Gv9rm0wR95hXXZMfnxpXc4KbGqY4yTraqxejVjNVx/NP2b43Wq7TL7z5l0wAOQp5cM
 
 [giggle]
 main-window-maximized = true
@@ -60,22 +60,23 @@ main-window-geometry = 0x0+0+0
 
 [commit]
 status = true
-template = /Users/asux/.stCommitMsg
-	gpgSign = false
+	template = /Users/asux/.stCommitMsg
+	gpgSign = true
 
 [difftool "sourcetree"]
-cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-path =
+	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	path = 
 
 [mergetool "sourcetree"]
-cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-trustExitCode = true
+	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
 
 [push]
 default = simple
+	autoSetupRemote = true
 
 [diff]
-tool = Kaleidoscope
+	tool = Kaleidoscope
 
 [difftool "diffmerge"]
 cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
@@ -88,17 +89,18 @@ cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\
 trustExitCode = true
 
 [difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [difftool]
-prompt = false
+	prompt = false
 
+	trustExitCode = true
 [mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-trustExitCode = true
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
 
 [mergetool]
-prompt = false
+	prompt = false
 keepBackup = true
 
 [filter "media"]
@@ -124,13 +126,15 @@ trustExitCode = true
 	editor = nova
 [gpg]
 	program = gpg
+	format = ssh
 [tag]
-	forceSignAnnotated = false
+	forceSignAnnotated = true
 [pull]
 	rebase = true
 [init]
 	defaultBranch = main
 [credential]
-	helper = manager-core
-[credential "https://dev.azure.com"]
-	useHttpPath = true
+	helper = osxkeychain
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	allowedSignersFile =

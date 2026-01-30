@@ -70,7 +70,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew bundler docker docker-compose dotenv git kubectl nvm macos postgres rake-fast ruby vscode yarn)
+plugins=(asdf brew bundler docker docker-compose dotenv git gitignore kubectl npm postgres rake-fast rails ruby vscode yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,15 +106,5 @@ if command -v ngrok &>/dev/null; then
     eval "$(ngrok completion)"
 fi
 
-# append completions to fpath
-fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Added by Windsurf
-export PATH="/Users/asux/.codeium/windsurf/bin:$PATH"
-
-# Added by Antigravity
-export PATH="/Users/asux/.antigravity/antigravity/bin:$PATH"

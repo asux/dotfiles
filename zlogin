@@ -7,7 +7,6 @@ alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
 [[ -f ${HOME}/.zshrc.${OSTYPE} ]] && source ${HOME}/.zshrc.${OSTYPE}
 [[ -f ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
 
-[[ -d ${HOME}/scripts ]] && export PATH="${HOME}/scripts:${PATH}"
 [[ -d ${HOME}/bin ]] && export PATH="${HOME}/bin:${PATH}"
 [[ -d ${HOME}/.local/bin ]] && export PATH="${HOME}/.local/bin:${PATH}"
 

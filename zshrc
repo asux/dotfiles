@@ -111,5 +111,10 @@ fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 # Added by Windsurf
 export PATH="/Users/asux/.codeium/windsurf/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/asux/.antigravity/antigravity/bin:$PATH"

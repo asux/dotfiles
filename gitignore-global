@@ -60,6 +60,7 @@ fabric.properties
 .idea/
 .generators
 .rakeTasks
+.rake_tasks
 
 ### macOS ###
 *.DS_Store
@@ -110,4 +111,4 @@ Temporary Items
 *.env
 .env.*
 
-.rake_tasks
+.nova/

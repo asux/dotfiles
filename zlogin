@@ -9,6 +9,7 @@ alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
 
 [[ -d ${HOME}/scripts ]] && export PATH="${HOME}/scripts:${PATH}"
 [[ -d ${HOME}/bin ]] && export PATH="${HOME}/bin:${PATH}"
+[[ -d ${HOME}/.local/bin ]] && export PATH="${HOME}/.local/bin:${PATH}"
 
 if [ -d "{$HOME}/platform-tools" ]; then
     export PATH="${HOME}/platform-tools:$PATH"

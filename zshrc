@@ -70,7 +70,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(asdf brew bundler docker docker-compose dotenv git gitignore kubectl npm postgres rake-fast rails ruby vscode yarn)
+plugins=(aliases asdf brew bundler docker docker-compose dotenv git gitignore kubectl npm postgres rake-fast rails ruby vscode yarn alias-finder)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,3 +108,8 @@ fi
 
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
+
+zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default

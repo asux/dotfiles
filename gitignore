@@ -95,7 +95,9 @@ Temporary Items
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history
+
+### Local history ###
+.history/
 
 # End of https://www.gitignore.io/api/macos,jetbrains+all,visualstudiocode
 
@@ -110,5 +112,7 @@ Temporary Items
 # Environment
 *.env
 .env.*
+!.env*.example
+!.env*.template
 
 .nova/

@@ -79,7 +79,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=uk_UA.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -102,10 +102,6 @@ unsetopt nomatch
 
 # export PATH="$PATH:/usr/local/sbin"
 
-if command -v ngrok &>/dev/null; then
-    eval "$(ngrok completion)"
-fi
-
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
@@ -113,3 +109,6 @@ zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
 zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
 zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
 zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
+
+[[ -f ${HOME}/.zshrc.${OSTYPE} ]] && source ${HOME}/.zshrc.${OSTYPE}
+[[ -f ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local

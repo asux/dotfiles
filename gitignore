@@ -110,9 +110,8 @@ Temporary Items
 # End of https://www.gitignore.io/api/komodoedit
 
 # Environment
-*.env
-.env.*
-!.env*.example
-!.env*.template
+# *.env
+# .env.*
+# !.env*.{example,template}
 
 .nova/
